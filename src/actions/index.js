@@ -25,11 +25,11 @@ export const addTodo = (payload, newTodo) => {
 
 export const markAsDone = (payload, id) => {
   let todoObj = payload.filter(i => {
-    if (i.id == id) return i;
+    if (i.id === id) return i;
   })[0];
   todoObj.status = "DONE";
   let arr = payload.filter(i => {
-    return i.id != id;
+    return i.id !== id;
   });
 
   return {
@@ -42,7 +42,7 @@ export const deleteTodo = (payload, id) => {
   return {
     type: DELETE_TODO,
     payload: payload.filter(i => {
-      return i.id != id;
+      return i.id !== id;
     })
   };
 };
